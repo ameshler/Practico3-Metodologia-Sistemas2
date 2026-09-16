@@ -69,3 +69,19 @@ def test_calcular_total_rechaza_descuento_mayor_a_100():
 
     # Assert
     assert isinstance(resultado, ValueError)
+
+def test_calcular_total_rechaza_descuento_negativo():
+    # Arrange
+    monto = 1000
+    descuento = -10
+
+    # Act
+    resultado = None
+
+    try:
+        calcular_total(monto, descuento)
+    except ValueError as error:
+        resultado = error
+
+    # Assert
+    assert isinstance(resultado, ValueError)
